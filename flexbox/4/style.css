@@ -1,0 +1,29 @@
+.grayArea {
+  background-color: gray;
+  height: 50px;
+}
+.container1,
+.container2,
+.container3,
+.container4,
+.container5 {
+  width: 500px;
+  height: 200px;
+  border: solid 1px black;
+  padding: 10px;
+}
+
+.container2,
+.container3 {
+  display: inline;
+}
+
+.container1 {
+  /* flex-basis: 50%; */
+  display: block;
+}
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+}

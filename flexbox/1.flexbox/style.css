@@ -1,0 +1,12 @@
+.box-1 {
+  width: 500px;
+  height: 500px;
+  background-color: pink;
+  display: flex;
+  flex-direction: column;
+}
+div {
+  background-color: grey;
+  border: 1px solid orange;
+  height: 20px;
+}
