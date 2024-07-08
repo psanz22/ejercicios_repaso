@@ -1,0 +1,13 @@
+div {
+  width: 30vw;
+  height: 30vh;
+  /* background-color: beige; */
+  overflow: scroll;
+}
+
+.scrolling {
+  background-color: palevioletred;
+}
+.scrolling2 {
+  background-color: paleturquoise;
+}
