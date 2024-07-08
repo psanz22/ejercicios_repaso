@@ -1,0 +1,25 @@
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.buttonA,
+.buttonB {
+  padding: 100px;
+  border-radius: 50%;
+  font-size: 300%;
+  background-color: red;
+}
+.buttonA:hover {
+  background-color: pink;
+}
+.buttonB:hover {
+  background-color: green;
+}
+
+.disabled {
+  opacity: 50%;
+}
