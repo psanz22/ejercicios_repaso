@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input,
+button {
+  padding: 10px;
+  border-radius: 1rem;
+}
+
+button {
+  background-color: blueviolet;
+  color: beige;
+}
+button:hover {
+  background-color: aquamarine;
+  color: blue;
+}
+input {
+  background-color: lightgray;
+}
+label {
+  font-size: 1.5rem;
+}
