@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: orchid;
+}
+button {
+  width: 30px;
+  height: 30px;
+  padding: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 2px solid;
+  background-color: yellow;
+  color: darkorange;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 5rem;
+}
+button:hover {
+  background-color: blueviolet;
+  color: darkblue;
+}
+
+.colorOne {
+  background-color: crimson;
+}
+.colorTwo {
+  background-color: coral;
+}
+.colorThree {
+  background-color: chocolate;
+}
