@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: lightpink;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+  gap: 30px;
+}
+
+input {
+  padding: 20px;
+  border-radius: 1rem;
+  border: 1px dashed;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 2rem;
+  background-color: rgb(255, 255, 194);
+}
+label {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2rem;
+}
+.message {
+  font-family: 'Courier New', Courier, monospace;
+}
+div {
+  width: 700px;
+}
