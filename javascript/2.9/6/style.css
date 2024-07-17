@@ -1,0 +1,24 @@
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+button {
+  padding: 30px;
+  border-radius: 1rem;
+  border: solid 1px;
+  background-color: lightgreen;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: darkolivegreen;
+  font-size: 2rem;
+}
+button:hover {
+  padding: 40px;
+  background-color: antiquewhite;
+  color: chocolate;
+}
+.alarm {
+  background-color: red;
+}
