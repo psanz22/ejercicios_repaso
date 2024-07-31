@@ -1,0 +1,25 @@
+.light {
+  background-color: lightgoldenrodyellow;
+  color: chocolate;
+}
+.dark {
+  background-color: chocolate;
+  color: lightgoldenrodyellow;
+}
+body {
+  height: 100vh;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  line-height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+p {
+  margin: 80px;
+}
+h1 {
+  margin: 0 50px;
+  padding-top: 30px;
+}
