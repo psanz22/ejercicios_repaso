@@ -13,8 +13,8 @@ const handleKeyUp = (ev) => {
   const inputValue = inputName.value;
   const lastNameValue = inputLastName.value;
   paintParagraph(inputValue, lastNameValue);
-  localStorage.setItem('name', inputValue);
-  localStorage.setItem('lastname', lastNameValue);
+  const user = { name: inputValue, lastname: lastNameValue };
+  localStorage.setItem('name', JSON.stringify(user));
 };
 
 inputName.addEventListener('keyup', handleKeyUp);
