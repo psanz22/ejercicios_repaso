@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: indianred;
+}
+.wrapper {
+  width: 50vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 2px dashed gray;
+  border-radius: 1rem;
+  background-color: lightseagreen;
+}
+p {
+  font-size: 5rem;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+.button_wrapper {
+  display: flex;
+  gap: 30px;
+}
+button {
+  padding: 7px;
+  background-color: yellow;
+  border-radius: 1rem;
+  border: 1px dashed black;
+}
+button:hover {
+  background-color: brown;
+  color: yellow;
+  padding: 12px;
+  font-size: 120%;
+}
