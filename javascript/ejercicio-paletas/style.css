@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgray;
+}
+.wrapper {
+  height: 200px;
+  width: 330px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.wrapper__palette {
+  height: 13vh;
+  background-color: rgb(182, 182, 182);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.palette__color {
+  width: 55px;
+  height: 55px;
+}
