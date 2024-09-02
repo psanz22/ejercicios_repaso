@@ -17,6 +17,10 @@ const getApi = () => {
       saveLS(palettesList);
     });
 };
+const handleClick = (ev) => {
+  console.log('click');
+  getFav(ev.currentTarget);
+};
 
 const palettesLS = JSON.parse(localStorage.getItem('palettes'));
 getApi();
@@ -35,7 +39,13 @@ const renderPalettes = (palettes) => {
     html += `</div></div>`;
   }
   container.innerHTML = html;
+  const containerPalettes = document.querySelectorAll('.js-palette');
+  for (let containerPalette of containerPalettes) {
+    containerPalette.addEventListener('click', handleClick);
+  }
 };
 renderPalettes(palettesLS);
 
-// container.classList.add('palette');
+const getFav = (palette) => {
+  palette.classList.toggle('fav');
+};

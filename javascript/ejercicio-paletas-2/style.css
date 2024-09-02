@@ -24,6 +24,7 @@ body {
   align-items: center;
   gap: 30px;
   padding: 20px;
+  border-radius: 1rem;
 }
 
 .palette__color {
@@ -40,4 +41,7 @@ body {
   height: 50px;
   padding: 10px;
   border-radius: 1rem;
+}
+.fav {
+  background-color: gold;
 }
