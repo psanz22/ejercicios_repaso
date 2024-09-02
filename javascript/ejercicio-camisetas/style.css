@@ -3,6 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+h1 {
+  font-size: 4rem;
+  margin-bottom: 50px;
+}
 
 body {
   height: 100vh;
@@ -24,13 +28,62 @@ main {
   width: 20vw;
 }
 .direction {
-  width: 20vw;
+  /* width: 20vw; */
+  display: flex;
+  flex-direction: column;
 }
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
 aside {
   display: flex;
   flex-direction: column;
   gap: 80px;
 }
 img {
-  width: 40%;
+  width: 30%;
+}
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  margin: 30px;
+}
+h2 {
+  text-align: center;
+}
+.containerDirection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: 'gra gre' 'gri gro' 'gru gry';
+  gap: 20px;
+}
+.label-1 {
+  grid-area: gra;
+}
+#direction {
+  grid-area: gre;
+}
+.label-2 {
+  grid-area: gri;
+}
+#city {
+  grid-area: gro;
+}
+.label-3 {
+  grid-area: gru;
+}
+#postalCode {
+  grid-area: gry;
 }
