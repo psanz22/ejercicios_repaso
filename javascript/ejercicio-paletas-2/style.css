@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  margin: 30px;
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+}
+.wrapper {
+  height: 90vw;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.js-palette {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 20px;
+}
+
+.palette__color {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.palette {
+  /* background-color: rgb(226, 151, 151);*/
+  background-color: rgb(230, 223, 223);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 1rem;
+}
