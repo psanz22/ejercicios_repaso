@@ -8,7 +8,9 @@ body {
   margin: 30px;
   background-color: lightgray;
   display: flex;
+
   flex-direction: column;
+  gap: 10px;
 }
 .wrapper {
   height: 90vw;
@@ -33,7 +35,6 @@ body {
   border-radius: 50%;
 }
 .palette {
-  /* background-color: rgb(226, 151, 151);*/
   background-color: rgb(230, 223, 223);
   display: flex;
   align-items: center;
@@ -44,4 +45,10 @@ body {
 }
 .fav {
   background-color: gold;
+}
+.inputText {
+  padding: 10px;
+  border-radius: 1rem;
+  border: 1px solid gray;
+  font-family: 'Courier New', Courier, monospace;
 }

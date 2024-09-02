@@ -3,6 +3,7 @@
 const container = document.querySelector('.wrapper');
 const url =
   'https://beta.adalab.es/ejercicios-de-los-materiales/js-ejercicio-de-paletas/data/palettes.json';
+const inputText = document.querySelector('.inputText');
 
 const saveLS = (palettes) => {
   localStorage.setItem('palettes', palettes);
@@ -15,7 +16,9 @@ const getApi = () => {
       console.log(data.palettes[0]);
       const palettesList = JSON.stringify(data.palettes);
       saveLS(palettesList);
+      renderPalettes(data.palettes);
     });
+  console.log('he hecho petición');
 };
 const handleClick = (ev) => {
   console.log('click');
@@ -23,9 +26,15 @@ const handleClick = (ev) => {
 };
 
 const palettesLS = JSON.parse(localStorage.getItem('palettes'));
-getApi();
 
-console.log('palettesList', palettesLS);
+const handleKey = () => {
+  const inputValue = inputText.value;
+  console.log(inputValue);
+  const filteredPalettes = palettesLS.filter((palette) => {
+    return palette.name.toLowerCase().includes(inputValue.toLowerCase());
+  });
+  renderPalettes(filteredPalettes);
+};
 
 const renderPalettes = (palettes) => {
   let html = '';
@@ -44,8 +53,15 @@ const renderPalettes = (palettes) => {
     containerPalette.addEventListener('click', handleClick);
   }
 };
-renderPalettes(palettesLS);
 
 const getFav = (palette) => {
   palette.classList.toggle('fav');
 };
+
+if (palettesLS) {
+  renderPalettes(palettesLS);
+} else {
+  getApi();
+}
+
+inputText.addEventListener('keyup', handleKey);
