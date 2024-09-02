@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  margin: 50px;
+}
+main {
+  display: flex;
+  justify-content: space-around;
+}
+.container {
+  display: grid;
+  grid-template-columns: 100px 100px 100px 100px;
+  grid-template-rows: 100px 100px;
+}
+.productsList {
+  width: 30vw;
+}
+.cesta {
+  width: 20vw;
+}
+.direction {
+  width: 20vw;
+}
+aside {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+img {
+  width: 40%;
+}
