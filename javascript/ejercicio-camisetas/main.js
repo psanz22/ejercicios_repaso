@@ -1,6 +1,7 @@
 'use strict';
 
 const container = document.querySelector('.products');
+const cartContainer = document.querySelector('.table');
 let products = [];
 let cart = [];
 
@@ -8,7 +9,6 @@ const getApi = () => {
   fetch('https://fakestoreapi.com/products')
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       saveLS(JSON.stringify(data));
       products = data;
       renderProducts(products);
@@ -17,24 +17,13 @@ const getApi = () => {
 
 const handleClick = (ev) => {
   const clickedId = ev.currentTarget.id;
-  console.log('id', clickedId);
   let foundProduct = [];
   for (const product of productsLS) {
     if (product.id === parseInt(clickedId)) {
-      console.log('bingo', product.id);
       foundProduct = product;
     }
-    console.log('foundProduct', foundProduct);
   }
 
-  // cart = [
-  //   {
-  //     id: '1',
-  //     name: 'hehe',
-  //     price: 10,
-  //     quantity: 1,
-  //   },
-  // ];
   cart.push({
     id: foundProduct.id,
     name: foundProduct.title,
@@ -42,6 +31,8 @@ const handleClick = (ev) => {
     quantity: 1,
   });
   console.log('cart', cart);
+
+  renderCart();
 };
 
 const addProduct = () => {
@@ -72,6 +63,36 @@ const renderProducts = (productsLS) => {
   }
   container.innerHTML = html;
   addProduct();
+};
+
+const getQuantityCart = () => {
+  let quantity = 0;
+};
+
+const getTotalPrice = () => {
+  let total = 0;
+  for (let item of cart) {
+    total += item.price * item.quantity;
+  }
+  return total;
+};
+
+const renderCart = () => {
+  let html = ` <tr>
+              <th>Producto</th>
+              <th>Precio</th>
+              <th>Unidades</th>
+              <th>Total</th>
+            </tr>`;
+  for (let product of cart) {
+    html += ` <tr>
+              <th>${product.name}</th>
+              <th>${product.price}</th>
+              <th>${product.quantity}</th>
+              <th>total</th>
+            </tr>`;
+  }
+  cartContainer.innerHTML = html;
 };
 
 if (productsLS) {
