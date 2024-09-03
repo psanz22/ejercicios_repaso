@@ -19,16 +19,15 @@ main {
 .container {
   display: grid;
   grid-template-columns: 100px 100px 100px 100px;
-  grid-template-rows: 100px 100px;
+  grid-template-rows: 1fr 1fr;
 }
 .productsList {
-  width: 30vw;
+  width: 50vw;
 }
 .cesta {
-  width: 20vw;
+  width: 25vw;
 }
 .direction {
-  /* width: 20vw; */
   display: flex;
   flex-direction: column;
 }
@@ -44,7 +43,7 @@ aside {
   gap: 80px;
 }
 img {
-  width: 30%;
+  width: 25%;
 }
 .product {
   display: flex;
@@ -52,6 +51,7 @@ img {
   justify-content: center;
   align-items: center;
   gap: 5px;
+  width: 70%;
 }
 .products {
   display: flex;
@@ -60,6 +60,12 @@ img {
   margin: 30px;
 }
 h2 {
+  text-align: left;
+}
+h3 {
+  font-size: 1rem;
+  margin-left: 120px;
+  margin-right: 120px;
   text-align: center;
 }
 .containerDirection {
@@ -87,3 +93,7 @@ h2 {
 #postalCode {
   grid-area: gry;
 }
+/* .added {
+  border: 3px solid goldenrod;
+  border-radius: 1rem;
+} */
