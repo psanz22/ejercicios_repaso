@@ -17,19 +17,30 @@ const getApi = () => {
 
 const handleClick = (ev) => {
   const clickedId = ev.currentTarget.id;
-  let foundProduct = [];
-  for (const product of productsLS) {
-    if (product.id === parseInt(clickedId)) {
-      foundProduct = product;
+  let foundItem;
+  for (let item of cart) {
+    if (item.id === parseInt(clickedId)) {
+      foundItem = item;
     }
   }
+  console.log(foundItem);
 
-  cart.push({
-    id: foundProduct.id,
-    name: foundProduct.title,
-    price: foundProduct.price,
-    quantity: 1,
-  });
+  if (foundItem === undefined) {
+    let foundProduct;
+    for (const product of productsLS) {
+      if (product.id === parseInt(clickedId)) {
+        foundProduct = product;
+      }
+    }
+
+    cart.push({
+      id: foundProduct.id,
+      name: foundProduct.title,
+      price: foundProduct.price,
+      quantity: 1,
+    });
+  }
+
   console.log('cart', cart);
 
   renderCart();
@@ -89,7 +100,7 @@ const renderCart = () => {
               <th>${product.name}</th>
               <th>${product.price}</th>
               <th>${product.quantity}</th>
-              <th>total</th>
+              <th>${product.price * product.quantity}</th>
             </tr>`;
   }
   cartContainer.innerHTML = html;
