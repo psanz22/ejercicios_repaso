@@ -1,0 +1,26 @@
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div {
+  border: 1px solid;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.success {
+  background-color: lightgreen;
+  color: darkgreen;
+}
+.error {
+  background-color: lightcoral;
+  color: red;
+}
+.warning {
+  background-color: yellow;
+  color: orange;
+}

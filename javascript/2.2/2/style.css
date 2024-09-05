@@ -1,0 +1,24 @@
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button {
+  padding: 20px;
+  border-radius: 0.6rem;
+  border: 1px solid;
+  background-color: darkkhaki;
+  color: darkslategray;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2rem;
+}
+/* button:hover {
+  background-color: pink;
+  color: midnightblue;
+} */
+.styleChange {
+  padding: 50px;
+  background-color: midnightblue;
+  color: skyblue;
+}

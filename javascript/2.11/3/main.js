@@ -7,7 +7,7 @@ const makeTree = (numberOfLines) => {
   for (let i = 1; i < numberOfLines + 1; i++) {
     let line = '';
     for (let j = 0; j < i; j++) {
-      line += '▲';
+      line += ' ▲';
     }
     tree.push(line);
   }
