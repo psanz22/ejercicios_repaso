@@ -87,7 +87,33 @@ const getTotalPrice = () => {
   }
   return total;
 };
-
+const handleClickCart = (ev) => {
+  console.log('click', ev.target.id);
+  const clickedButton = ev.target;
+  for (let product of cart) {
+    if (clickedButton.id === 'button-b') {
+      product.quantity = parseInt(product.quantity) + 1;
+    }
+  }
+};
+const handleQuantityCart = () => {
+  const buttonA = document.querySelector('.button-js');
+  const buttonB = document.querySelector('.js-button');
+  buttonA.addEventListener('click', handleClickCart);
+  buttonB.addEventListener('click', handleClickCart);
+};
+const getTotalCart = () => {
+  let total = 0;
+  for (let item of cart) {
+    total += item.price * item.quantity;
+  }
+  return total;
+};
+const getCartTotalHtmlCode = () => {
+  let html = '';
+  html += `<th>Total</th><th></th><th></th><th>${getTotalCart()}</th>`;
+  return (cartContainer.innerHTML += html);
+};
 const renderCart = () => {
   let html = ` <tr>
               <th>Producto</th>
@@ -99,11 +125,17 @@ const renderCart = () => {
     html += ` <tr>
               <th>${product.name}</th>
               <th>${product.price}</th>
-              <th>${product.quantity}</th>
-              <th>${product.price * product.quantity}</th>
+              <th><button class="button-js" id="button-a">-</button>${
+                product.quantity
+              }<button class="button-js js-button" id="button-b">+</button></th>
+              <th>${product.price * product.quantity}€</th>
             </tr>`;
   }
   cartContainer.innerHTML = html;
+
+  handleQuantityCart();
+  getTotalCart();
+  getCartTotalHtmlCode();
 };
 
 if (productsLS) {
