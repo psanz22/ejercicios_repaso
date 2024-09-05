@@ -23,7 +23,7 @@ const handleClick = (ev) => {
       foundItem = item;
     }
   }
-  console.log(foundItem);
+  console.log('ffff', foundItem);
 
   if (foundItem === undefined) {
     let foundProduct;
@@ -39,9 +39,10 @@ const handleClick = (ev) => {
       price: foundProduct.price,
       quantity: 1,
     });
+  } else {
+    foundItem.quantity += 1;
+    console.log(foundItem);
   }
-
-  console.log('cart', cart);
 
   renderCart();
 };
@@ -76,10 +77,6 @@ const renderProducts = (productsLS) => {
   addProduct();
 };
 
-const getQuantityCart = () => {
-  let quantity = 0;
-};
-
 const getTotalPrice = () => {
   let total = 0;
   for (let item of cart) {
@@ -87,20 +84,30 @@ const getTotalPrice = () => {
   }
   return total;
 };
-const handleClickCart = (ev) => {
-  console.log('click', ev.target.id);
+
+// const getQuantityCart = (quantity) => {
+//   quantity += 1;
+//   return quantity;
+// };
+const handleClickButtonQuantity = (ev) => {
   const clickedButton = ev.target;
-  for (let product of cart) {
+  for (let item of cart) {
     if (clickedButton.id === 'button-b') {
-      product.quantity = parseInt(product.quantity) + 1;
+      console.log('una mas');
+      item.quantity += 1;
+    } else if (clickedButton.id === 'button-a' && item.quantity > 0) {
+      console.log('una menos');
+      item.quantity -= 1;
     }
   }
+  renderCart();
 };
+
 const handleQuantityCart = () => {
   const buttonA = document.querySelector('.button-js');
   const buttonB = document.querySelector('.js-button');
-  buttonA.addEventListener('click', handleClickCart);
-  buttonB.addEventListener('click', handleClickCart);
+  buttonA.addEventListener('click', handleClickButtonQuantity);
+  buttonB.addEventListener('click', handleClickButtonQuantity);
 };
 const getTotalCart = () => {
   let total = 0;
@@ -109,6 +116,7 @@ const getTotalCart = () => {
   }
   return total;
 };
+
 const getCartTotalHtmlCode = () => {
   let html = '';
   html += `<th>Total</th><th></th><th></th><th>${getTotalCart()}</th>`;
@@ -133,9 +141,9 @@ const renderCart = () => {
   }
   cartContainer.innerHTML = html;
 
-  handleQuantityCart();
   getTotalCart();
   getCartTotalHtmlCode();
+  handleQuantityCart();
 };
 
 if (productsLS) {
@@ -143,3 +151,7 @@ if (productsLS) {
 } else {
   getApi();
 }
+
+// if (cart.length > 0) {
+//   getQuantityCart(foundItem.quantity);
+// }
