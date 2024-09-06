@@ -4,6 +4,7 @@ const container = document.querySelector('.products');
 const cartContainer = document.querySelector('.table');
 let products = [];
 let cart = [];
+const productsLS = JSON.parse(localStorage.getItem('products'));
 
 const getApi = () => {
   fetch('https://fakestoreapi.com/products')
@@ -41,7 +42,6 @@ const handleClick = (ev) => {
     });
   } else {
     foundItem.quantity += 1;
-    console.log(foundItem);
   }
 
   renderCart();
@@ -58,8 +58,6 @@ const addProduct = () => {
 const saveLS = (products) => {
   localStorage.setItem('products', products);
 };
-
-const productsLS = JSON.parse(localStorage.getItem('products'));
 
 const renderProducts = (productsLS) => {
   let html = ``;
@@ -85,30 +83,33 @@ const getTotalPrice = () => {
   return total;
 };
 
-// const getQuantityCart = (quantity) => {
-//   quantity += 1;
-//   return quantity;
-// };
 const handleClickButtonQuantity = (ev) => {
-  const clickedButton = ev.target;
+  const clickedButton = ev.target.id;
+  console.log('clicked', clickedButton);
+  // let foundItem;
   for (let item of cart) {
-    if (clickedButton.id === 'button-b') {
+    if (clickedButton === `button-b ${item.id}`) {
+      // foundItem = clickedButton.id;
       console.log('una mas');
+
       item.quantity += 1;
-    } else if (clickedButton.id === 'button-a' && item.quantity > 0) {
+    } else if (clickedButton === `button-a ${item.id}` && item.quantity > 0) {
       console.log('una menos');
       item.quantity -= 1;
     }
   }
   renderCart();
 };
+console.log('cart', cart);
 
 const handleQuantityCart = () => {
-  const buttonA = document.querySelector('.button-js');
-  const buttonB = document.querySelector('.js-button');
-  buttonA.addEventListener('click', handleClickButtonQuantity);
-  buttonB.addEventListener('click', handleClickButtonQuantity);
+  const buttons = document.querySelectorAll('.button-js');
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', handleClickButtonQuantity);
+  });
 };
+
 const getTotalCart = () => {
   let total = 0;
   for (let item of cart) {
@@ -133,9 +134,13 @@ const renderCart = () => {
     html += ` <tr>
               <th>${product.name}</th>
               <th>${product.price}</th>
-              <th><button class="button-js" id="button-a">-</button>${
-                product.quantity
-              }<button class="button-js js-button" id="button-b">+</button></th>
+              <th><button class="button-js" id="button-a ${
+                product.id
+              }">-</button>${
+      product.quantity
+    }<button class="button-js js-button" id="button-b ${
+      product.id
+    }">+</button></th>
               <th>${product.price * product.quantity}€</th>
             </tr>`;
   }
@@ -151,7 +156,3 @@ if (productsLS) {
 } else {
   getApi();
 }
-
-// if (cart.length > 0) {
-//   getQuantityCart(foundItem.quantity);
-// }
