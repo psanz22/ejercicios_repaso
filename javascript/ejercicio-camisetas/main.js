@@ -6,6 +6,10 @@ let products = [];
 let cart = [];
 const productsLS = JSON.parse(localStorage.getItem('products'));
 
+const saveLS = (products) => {
+  localStorage.setItem('products', products);
+};
+
 const getApi = () => {
   fetch('https://fakestoreapi.com/products')
     .then((response) => response.json())
@@ -14,6 +18,22 @@ const getApi = () => {
       products = data;
       renderProducts(products);
     });
+};
+
+const renderProducts = (productsLS) => {
+  let html = ``;
+  for (let product of productsLS) {
+    html += `<div class="product" id="${product.id}">
+            <img
+              src="${product.image}"
+            />
+            <h3>${product.title}</h3>
+            <p>${product.price} €</p>
+            <button class="add">Añadir a la cesta</button>
+          </div>`;
+  }
+  container.innerHTML = html;
+  addProduct();
 };
 
 const handleClick = (ev) => {
@@ -55,26 +75,6 @@ const addProduct = () => {
   }
 };
 
-const saveLS = (products) => {
-  localStorage.setItem('products', products);
-};
-
-const renderProducts = (productsLS) => {
-  let html = ``;
-  for (let product of productsLS) {
-    html += `<div class="product" id="${product.id}">
-            <img
-              src="${product.image}"
-            />
-            <h3>${product.title}</h3>
-            <p>${product.price} €</p>
-            <button class="add">Añadir a la cesta</button>
-          </div>`;
-  }
-  container.innerHTML = html;
-  addProduct();
-};
-
 const getTotalPrice = () => {
   let total = 0;
   for (let item of cart) {
@@ -86,10 +86,8 @@ const getTotalPrice = () => {
 const handleClickButtonQuantity = (ev) => {
   const clickedButton = ev.target.id;
   console.log('clicked', clickedButton);
-  // let foundItem;
   for (let item of cart) {
     if (clickedButton === `button-b ${item.id}`) {
-      // foundItem = clickedButton.id;
       console.log('una mas');
 
       item.quantity += 1;
